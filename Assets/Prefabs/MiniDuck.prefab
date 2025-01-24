@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4096814844472375256}
   - component: {fileID: 8686271372743242686}
+  - component: {fileID: 585287787713520375}
   m_Layer: 0
   m_Name: MiniDuck
   m_TagString: Untagged
@@ -86,6 +87,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.1
   m_Center: {x: 0, y: 0.22, z: 0.11}
+--- !u!114 &585287787713520375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981760834387134469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b686cc9f0eb54c0f98fc12f172788f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5029993415402365770
 GameObject:
   m_ObjectHideFlags: 0
