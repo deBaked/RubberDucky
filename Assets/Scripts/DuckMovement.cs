@@ -18,7 +18,7 @@ public class DuckMovement : MonoBehaviour
     [SerializeField] GameObject water;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    public float playerSpeed = 2.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
@@ -64,15 +64,15 @@ public class DuckMovement : MonoBehaviour
                 mote.Accel.CalibrateAccel(AccelCalibrationStep.LEFT_SIDE_UP);
             }
 
-            Debug.Log("getting data");
+            //Debug.Log("getting data");
             float[] accell = mote.Accel.GetCalibratedAccelData();
 
             moveX = accell[1] - 0.3f;
-            moveY = accell[0] + 0.1f;
+            moveY = accell[0] - 0.1f;
 
             if (moveX > -0.25f && moveX < 0.25f) { moveX = 0f; }
 
-            if (moveY > -1) { moveY = -1f; }
+            if (moveY > -0.7) { moveY = -0.7f; }
 
             Debug.Log(moveY);
         }
@@ -81,10 +81,10 @@ public class DuckMovement : MonoBehaviour
         controller.Move(-movement * Time.deltaTime * playerSpeed);
         //cam.transform.position = new Vector3(0, 0, this.gameObject.transform.position.z);
 
-        if (movement != Vector3.zero)
-        {
-            gameObject.transform.forward = movement;
-        }
+        //if (movement != Vector3.zero)
+        //{
+        //    gameObject.transform.forward = movement;
+        //}
 
         //// Makes the player jump
         //if (Input.getbu("Space") && groundedPlayer)
@@ -98,7 +98,7 @@ public class DuckMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        water.transform.position += new Vector3(0, 0, moveY * 0.05f);
+        water.transform.position += new Vector3(0, 0, moveY * 0.2f);
     }
     
 
