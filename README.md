@@ -1,5 +1,6 @@
 ![ggj25_rubber_ducky_logo](https://github.com/user-attachments/assets/d3bdbf99-65e5-489a-911c-f6223d131104)
-![logo-global-game-jam-2025-500x500_320-4079613248](https://github.com/user-attachments/assets/ea1bd16e-1d3d-4698-b907-f09a29253913)
+![ggjlogo](https://github.com/user-attachments/assets/76aada52-d693-4304-b4a3-34a50d2af38f)
+
 
 ## Global Game Jam 2025: Rubber Ducky Gamin
 
