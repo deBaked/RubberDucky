@@ -14,13 +14,17 @@ public class DuckMovement : MonoBehaviour
     public float offset;
 
     [SerializeField] CharacterController controller;
-    [SerializeField] Transform cam;
     [SerializeField] GameObject water;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     public float playerSpeed = 2.0f;
+    public float playerForwardSpeed = 0.5f;
+    public float playerForwardSpeed_Mult = 1f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
+
+    Vector3 wiiMovement;
+    Vector3 movement;
 
     void Start()
     {
@@ -75,10 +79,39 @@ public class DuckMovement : MonoBehaviour
             if (moveY > -0.7) { moveY = -0.7f; }
 
             Debug.Log(moveY);
-        }
 
-        Vector3 movement = new Vector3(moveX, 0, 0);
-        controller.Move(-movement * Time.deltaTime * playerSpeed);
+            if (mote.Button.two)
+            {
+                playerForwardSpeed_Mult = 2f;
+            }
+            else
+            {
+                playerForwardSpeed_Mult = 1f;
+            }
+
+            wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
+            controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                playerForwardSpeed_Mult = 2f;
+            }
+            else
+            {
+                playerForwardSpeed_Mult = 1f;
+            }
+
+            movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), playerForwardSpeed * playerForwardSpeed_Mult);
+            controller.Move(movement * Time.deltaTime * playerSpeed);
+
+            moveY = -Input.GetAxis("Vertical");
+
+            if (moveY > -0.7) { moveY = -0.7f; }
+
+        }
+        
         //cam.transform.position = new Vector3(0, 0, this.gameObject.transform.position.z);
 
         //if (movement != Vector3.zero)
@@ -96,10 +129,19 @@ public class DuckMovement : MonoBehaviour
         //controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    /*
     void FixedUpdate()
     {
-        water.transform.position += new Vector3(0, 0, moveY * 0.2f);
-    }
+        if (mote != null)
+        {
+            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
+        }
+        else
+        {
+            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
+        }
+        
+    }*/
     
 
     IEnumerator ActivateMote()
