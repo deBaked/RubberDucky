@@ -15,7 +15,6 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - ba6efd85c9627704ea82be4c839bce61
-    - a93e84d0b43d7a942b46f1a6ce6b8fc3
     values:
     - goDatas_byGlobalId:
         keys:
@@ -23,6 +22,9 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1435228730-0
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1942103228-0
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-242979191-0
+        - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-5073115325589810325-3197748038057514339
+        - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1917231011059423023-3197748038057514339
+        - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-2700919228814202345-0
         values:
         - colorIndex: 3
           iconNameOrGuid: AvatarMask On Icon
@@ -40,8 +42,17 @@ MonoBehaviour:
           iconNameOrGuid: 
           isIconRecursive: 0
           isColorRecursive: 0
-    - goDatas_byGlobalId:
-        keys: []
-        values: []
+        - colorIndex: 3
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths: []
