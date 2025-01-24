@@ -15,6 +15,7 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - ba6efd85c9627704ea82be4c839bce61
+    - 9a3f91d543f4f9448ba37c36ce4ce7fa
     values:
     - goDatas_byGlobalId:
         keys:
@@ -22,6 +23,29 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1435228730-0
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1942103228-0
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-242979191-0
+        values:
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 6
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-9a3f91d543f4f9448ba37c36ce4ce7fa-20669799-0
+        - globalObjectIdString: GlobalObjectId_V1-2-9a3f91d543f4f9448ba37c36ce4ce7fa-1435228730-0
+        - globalObjectIdString: GlobalObjectId_V1-2-9a3f91d543f4f9448ba37c36ce4ce7fa-1942103228-0
+        - globalObjectIdString: GlobalObjectId_V1-2-9a3f91d543f4f9448ba37c36ce4ce7fa-242979191-0
         values:
         - colorIndex: 3
           iconNameOrGuid: AvatarMask On Icon
