@@ -13,33 +13,40 @@ public class DuckMovement : MonoBehaviour
 
     public float offset;
 
-    [SerializeField] CharacterController controller;
-    [SerializeField] GameObject water;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    public float playerSpeed = 2.0f;
-    public float playerForwardSpeed = 0.5f;
-    public float playerForwardSpeed_Mult = 1f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    public bool flyDisabled
+    {
+        get { return flyDisabled; }
+        set
+        {
+            flyDisabled = value;
+            canFly(value);
+        }
+    }
 
+    [SerializeField] CharacterController controller;
+    
+    [Header("No Fly Movement Settings")]
+    public float noFlyPlayerSpeed = 2.5f;
+    public float noFlyPlayerForwardSpeed = 0.7f;
+    public float noFlyPlayerForwardSpeed_Mult = 1f; 
+    
+    [Header("Flying Movement Settings")]
+    public float flyingPlayerSpeed = 2.0f;
+    public float flyingPlayerForwardSpeed = 0.5f;
+    public float flyingPlayerForwardSpeed_Mult = 0.7f;
+    
+    //Movement Settings
+    float playerSpeed = 2.0f;
+    float playerForwardSpeed = 0.5f;
+    float playerForwardSpeed_Mult = 0.7f; 
+    
     Vector3 wiiMovement;
     Vector3 movement;
-
+    
     void Start()
     {
         WiimoteManager.FindWiimotes();
         StartCoroutine(ActivateMote());
-
-
-        //if (mote == null)
-        //{
-        //    ContiniousScanning();
-        //}
-        //else
-        //{
-        //    mote.SendPlayerLED(false, true, false, false);
-        //}
     }
 
     private void ContiniousScanning()
@@ -75,8 +82,9 @@ public class DuckMovement : MonoBehaviour
             moveY = accell[0] - 0.1f;
 
             if (moveX > -0.25f && moveX < 0.25f) { moveX = 0f; }
+            if (moveY > -0.25f && moveY < 0.25f) { moveY = 0f; }
 
-            if (moveY > -0.7) { moveY = -0.7f; }
+            //if (moveY > -0.7) { moveY = -0.7f; }
 
             Debug.Log(moveY);
 
@@ -87,6 +95,11 @@ public class DuckMovement : MonoBehaviour
             else
             {
                 playerForwardSpeed_Mult = 1f;
+            }
+
+            if (flyDisabled)
+            {
+                moveY = 0f;
             }
 
             wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
@@ -103,13 +116,15 @@ public class DuckMovement : MonoBehaviour
                 playerForwardSpeed_Mult = 1f;
             }
 
-            movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), playerForwardSpeed * playerForwardSpeed_Mult);
+            moveY = Input.GetAxis("Vertical");
+
+            if (flyDisabled)
+            {
+                moveY = 0f;
+            }
+            
+            movement = new Vector3(Input.GetAxis("Horizontal"), moveY, playerForwardSpeed * playerForwardSpeed_Mult);
             controller.Move(movement * Time.deltaTime * playerSpeed);
-
-            moveY = -Input.GetAxis("Vertical");
-
-            if (moveY > -0.7) { moveY = -0.7f; }
-
         }
         
         //cam.transform.position = new Vector3(0, 0, this.gameObject.transform.position.z);
@@ -142,7 +157,28 @@ public class DuckMovement : MonoBehaviour
         }
         
     }*/
-    
+
+    public void canFly(bool flying)
+    {
+        if (flying)
+        {
+            flyDisabled = false;
+            
+            // PLAYER IS FLYING
+            playerSpeed = flyingPlayerSpeed;
+            playerForwardSpeed = flyingPlayerForwardSpeed;
+            playerForwardSpeed_Mult = flyingPlayerForwardSpeed_Mult;
+        }
+        else
+        {
+            flyDisabled = true;
+            
+            // PLAYER CANNOT FLY
+            playerSpeed = noFlyPlayerSpeed;
+            playerForwardSpeed = noFlyPlayerForwardSpeed;
+            playerForwardSpeed_Mult = noFlyPlayerForwardSpeed_Mult;
+        }
+    }
 
     IEnumerator ActivateMote()
     {
