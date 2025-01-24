@@ -18,27 +18,13 @@ https://github.com/deBaked/RubberDucky
 
 ## Project description
 
-{The README template guide includes information on how to write a project description and a project description. Here are some examples of effective phrases for describing a project.}
-
-With _{Project Name}_ you can _{verb}_ _{noun}_...
-
-_{Project Name}_ helps you _{verb}_ _{noun}_...
-
-Unlike _{alternative}_, _{Project Name}_ _{verb}_ _{noun}_...
-
-{Include screenshots and/or demo videos if applicable}
-
-## Who this project is for
-
-This project is intended for {target user} who wants to {user objective}.
+This project is a game submitted as part of the Global Game Jam 2025. This project is a game that was completed over 3 days of development.
 
 ## Project dependencies
 
-Before using {Project Name}, ensure you have:
+To run this repo, ensure you have:
 
-* Prerequisite 1
-* Prerequisite 2
-* Prerequisite 3...
+* Unity (Version: 2023.2.20f1)
 
 ## Instructions for using {Project Name}
 
