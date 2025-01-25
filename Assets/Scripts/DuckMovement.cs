@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,12 +20,12 @@ public class DuckMovement : MonoBehaviour
     
     [Header("No Fly Movement Settings")]
     public float noFlyPlayerSpeed = 3f;
-    public float noFlyPlayerForwardSpeed = 0.7f;
+    public float noFlyPlayerForwardSpeed = 0.07f;
     //public float noFlyPlayerForwardSpeed_Mult = 1f; 
     
     [Header("Flying Movement Settings")]
     public float flyingPlayerSpeed = 1.5f;
-    public float flyingPlayerForwardSpeed = 0.5f;
+    public float flyingPlayerForwardSpeed = 0.05f;
     //public float flyingPlayerForwardSpeed_Mult = 0.7f;
     
     [Header("Current Movement Settings")]
@@ -152,16 +153,36 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            movement = new Vector3(0, moveY, 0.05f);
+            movement = new Vector3(0, moveY, playerForwardSpeed * Time.deltaTime);
             
             transform.Translate(movement);
 
             transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal"));
-            transform.forward += new Vector3(0, movement.y, 0);
+            transform.forward += new Vector3(0, movement.y / 2f, 0);
             
         }
         
     }
+
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     Debug.Log("collision");
+    //     playerForwardSpeed = 0f;
+    // }
+    //
+    // private void OnCollisionExit(Collision other)
+    // {
+    //     if (flyDisabled)
+    //     {
+    //         // if you player isn't flying
+    //         playerForwardSpeed = noFlyPlayerForwardSpeed;
+    //     }
+    //     else
+    //     {
+    //         // if play is flying
+    //         playerForwardSpeed = flyingPlayerForwardSpeed;
+    //     }
+    // }
 
 
     public void canFly(bool flying)
