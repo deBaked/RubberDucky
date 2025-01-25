@@ -25,6 +25,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-5073115325589810325-3197748038057514339
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1917231011059423023-3197748038057514339
         - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-2700919228814202345-0
+        - globalObjectIdString: GlobalObjectId_V1-2-ba6efd85c9627704ea82be4c839bce61-1429639100209366896-2076393914258219998
         values:
         - colorIndex: 3
           iconNameOrGuid: AvatarMask On Icon
@@ -51,6 +52,10 @@ MonoBehaviour:
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 4
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
           iconNameOrGuid: 
           isIconRecursive: 0
           isColorRecursive: 0
