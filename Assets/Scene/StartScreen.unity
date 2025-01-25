@@ -270,8 +270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 205195901}
   transitionTrigger: {fileID: 371161794}
-  DuckClip: {fileID: 8300000, guid: 56697d282762d234c8715db647ac860b, type: 3}
-  BubbleClip: {fileID: 8300000, guid: 8b7a50e5bb5610d42a1ecc2fa2089059, type: 3}
+  duckClip: {fileID: 8300000, guid: 56697d282762d234c8715db647ac860b, type: 3}
+  bubbleClip: {fileID: 8300000, guid: 8b7a50e5bb5610d42a1ecc2fa2089059, type: 3}
 --- !u!95 &205195903
 Animator:
   serializedVersion: 7

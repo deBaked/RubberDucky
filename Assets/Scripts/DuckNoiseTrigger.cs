@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DuckNoiseTrigger : MonoBehaviour
 {
@@ -6,8 +7,8 @@ public class DuckNoiseTrigger : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] TransitionTrigger transitionTrigger;
     
-    [SerializeField] AudioClip DuckClip;
-    [SerializeField] AudioClip BubbleClip;
+    [SerializeField] AudioClip duckClip;
+    [SerializeField] AudioClip bubbleClip;
     
     void Start()
     {
@@ -17,7 +18,7 @@ public class DuckNoiseTrigger : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         }
         
-        audioSource.clip = DuckClip;
+        audioSource.clip = duckClip;
         audioSource.playOnAwake = false;
         audioSource.loop = false;
     }
@@ -27,7 +28,7 @@ public class DuckNoiseTrigger : MonoBehaviour
     /// </summary>
     public void TriggerDuckNoise()
     {
-        audioSource.clip = DuckClip;
+        audioSource.clip = duckClip;
         audioSource.Play();
     }
     
@@ -36,7 +37,7 @@ public class DuckNoiseTrigger : MonoBehaviour
     /// </summary>
     public void TriggerBubbleNoise()
     {
-        audioSource.clip = BubbleClip;
+        audioSource.clip = bubbleClip;
         audioSource.Play();
     }
 
