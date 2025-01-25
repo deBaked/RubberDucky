@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using VHierarchy.Libs;
 
@@ -9,7 +6,11 @@ public class TransitionTrigger : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] string sceneToLoad;
     
+    [SerializeField] bool isTransitionOut = true;
+    [SerializeField] bool canSceneChange = false;
+    
     private Animator _animator;
+    private float _transitionPolarity = 1f;
     private GameSingleton _gameSingleton;
     
     // Start is called before the first frame update
@@ -23,13 +24,16 @@ public class TransitionTrigger : MonoBehaviour
         if (sceneToLoad.IsNullOrEmpty())
         {
             Debug.LogWarning("No scene target set in inspector!");
-            sceneToLoad = "MainMenu";
         }
         
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        _transitionPolarity = isTransitionOut ? 1f : -1f;
+
+        _animator.speed = _transitionPolarity;
         
         audioSource.playOnAwake = false;
         audioSource.loop = false;
@@ -51,6 +55,7 @@ public class TransitionTrigger : MonoBehaviour
     // Called from anim event
     public void TriggerSceneChange()
     {
-        _gameSingleton.SceneChange(sceneToLoad);
+        if (canSceneChange)
+            _gameSingleton.SceneChange(sceneToLoad);
     }
 }
