@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using WiimoteApi;
@@ -13,40 +12,39 @@ public class DuckMovement : MonoBehaviour
 
     public float offset;
 
-    public bool flyDisabled
-    {
-        get { return flyDisabled; }
-        set
-        {
-            flyDisabled = value;
-            canFly(value);
-        }
-    }
-
+    public bool flyDisabled;
+    
     [SerializeField] CharacterController controller;
     
     [Header("No Fly Movement Settings")]
-    public float noFlyPlayerSpeed = 2.5f;
+    public float noFlyPlayerSpeed = 3f;
     public float noFlyPlayerForwardSpeed = 0.7f;
-    public float noFlyPlayerForwardSpeed_Mult = 1f; 
+    //public float noFlyPlayerForwardSpeed_Mult = 1f; 
     
     [Header("Flying Movement Settings")]
-    public float flyingPlayerSpeed = 2.0f;
+    public float flyingPlayerSpeed = 1.5f;
     public float flyingPlayerForwardSpeed = 0.5f;
-    public float flyingPlayerForwardSpeed_Mult = 0.7f;
+    //public float flyingPlayerForwardSpeed_Mult = 0.7f;
     
     //Movement Settings
-    float playerSpeed = 2.0f;
-    float playerForwardSpeed = 0.5f;
-    float playerForwardSpeed_Mult = 0.7f; 
+    public float playerSpeed;
+    public float playerForwardSpeed;
+    public float SprintSpeed;
+    public float rotationSpeed;
+    private float playerForwardSpeed_Mult; 
     
     Vector3 wiiMovement;
     Vector3 movement;
     
     void Start()
     {
+        playerSpeed = noFlyPlayerSpeed;
+        playerForwardSpeed = noFlyPlayerForwardSpeed;
+        
         WiimoteManager.FindWiimotes();
         StartCoroutine(ActivateMote());
+
+        //playerForwardSpeed_Mult = noFlyPlayerForwardSpeed_Mult;
     }
 
     private void ContiniousScanning()
@@ -67,6 +65,7 @@ public class DuckMovement : MonoBehaviour
 
     void Update()
     {
+        // WII MOTE INPUTS
         if(mote != null)
         {
             // recalibrate the wiiMote
@@ -90,7 +89,15 @@ public class DuckMovement : MonoBehaviour
 
             if (mote.Button.two)
             {
-                playerForwardSpeed_Mult = 2f;
+                if (flyDisabled)
+                {
+                    playerForwardSpeed_Mult = 1f * (SprintSpeed / 2);
+                }
+                else
+                {
+                    playerForwardSpeed_Mult = 1f * SprintSpeed;
+                }
+               
             }
             else
             {
@@ -102,61 +109,59 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
-            controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
+            wiiMovement = new Vector3(0, moveY, 0.05f);
+            
+            transform.Translate(wiiMovement);
+
+            transform.RotateAround(transform.position, Vector3.up, moveX);
+            transform.forward += new Vector3(0, wiiMovement.y, 0); ;
+            
+            //wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
+            // controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
+            //
+            // if (wiiMovement != Vector3.zero)
+            // {
+            //     gameObject.transform.forward = wiiMovement;
+            //     
+            // }
         }
+        // WASD INPUTS
         else
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                playerForwardSpeed_Mult = 2f;
+                if (flyDisabled)
+                {
+                    playerForwardSpeed_Mult = 1f * (SprintSpeed / 2);
+                }
+                else
+                {
+                    playerForwardSpeed_Mult = 1f * SprintSpeed;
+                }
             }
             else
             {
                 playerForwardSpeed_Mult = 1f;
             }
 
-            moveY = Input.GetAxis("Vertical");
+            moveY = Input.GetAxis("Vertical") * 0.05f ;
 
             if (flyDisabled)
             {
                 moveY = 0f;
             }
+
+            movement = new Vector3(0, moveY, 0.05f);
             
-            movement = new Vector3(Input.GetAxis("Horizontal"), moveY, playerForwardSpeed * playerForwardSpeed_Mult);
-            controller.Move(movement * Time.deltaTime * playerSpeed);
+            transform.Translate(movement);
+
+            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal"));
+            transform.forward += new Vector3(0, movement.y, 0);
+            
         }
         
-        //cam.transform.position = new Vector3(0, 0, this.gameObject.transform.position.z);
-
-        //if (movement != Vector3.zero)
-        //{
-        //    gameObject.transform.forward = movement;
-        //}
-
-        //// Makes the player jump
-        //if (Input.getbu("Space") && groundedPlayer)
-        //{
-        //    playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
-        //}
-
-        //playerVelocity.y += gravityValue * Time.deltaTime;
-        //controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    /*
-    void FixedUpdate()
-    {
-        if (mote != null)
-        {
-            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
-        }
-        else
-        {
-            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
-        }
-        
-    }*/
 
     public void canFly(bool flying)
     {
@@ -167,7 +172,7 @@ public class DuckMovement : MonoBehaviour
             // PLAYER IS FLYING
             playerSpeed = flyingPlayerSpeed;
             playerForwardSpeed = flyingPlayerForwardSpeed;
-            playerForwardSpeed_Mult = flyingPlayerForwardSpeed_Mult;
+            //playerForwardSpeed_Mult = flyingPlayerForwardSpeed_Mult;
         }
         else
         {
@@ -176,7 +181,7 @@ public class DuckMovement : MonoBehaviour
             // PLAYER CANNOT FLY
             playerSpeed = noFlyPlayerSpeed;
             playerForwardSpeed = noFlyPlayerForwardSpeed;
-            playerForwardSpeed_Mult = noFlyPlayerForwardSpeed_Mult;
+            //playerForwardSpeed_Mult = noFlyPlayerForwardSpeed_Mult;
         }
     }
 
