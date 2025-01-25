@@ -1,20 +1,9 @@
-![ggj25_rubber_ducky_logo](https://github.com/user-attachments/assets/d3bdbf99-65e5-489a-911c-f6223d131104)
+![logo](https://github.com/user-attachments/assets/c22685b6-34e2-4a00-8f02-bf676dc43f43)
 ![ggjlogo](https://github.com/user-attachments/assets/76aada52-d693-4304-b4a3-34a50d2af38f)
-
 
 ## Global Game Jam 2025: Rubber Ducky Gamin
 
 https://github.com/deBaked/RubberDucky
-
-## Table of contents
-
-{This section is optional.}
-
-1. Heading 1
-
-2. Heading 2
-
-3. Heading 3...
 
 ## Project description
 
@@ -26,107 +15,24 @@ To run this repo, ensure you have:
 
 * Unity (Version: 2023.2.20f1)
 
-## Instructions for using {Project Name}
-
-Get started with {Project Name} by {write the first step a user needs to start using the project. Use a verb to start.}.
-
-### Install {Project Name}
-
-1. {Write the step here.}
-
-    {Explanatory text here}
-
-    {Optional: Include a code sample or screenshot that helps your users complete this step}
-
-2. {Write the step here.}
-
-    a. {Substep 1}
-
-    b. {Substep 2}
-
-### Configure {Project Name}
-
-1. {Write the step here.}
-2. {Write the step here.}
-
-### Run {Project Name}
-
-1. {Write the step here.}
-2. {Write the step here.}
-
-### Troubleshoot {Project Name}
-
-1. {Write the step here.}
-2. {Write the step here.}
-
-<table>
-  <tr>
-   <td>
-    Issue
-   </td>
-   <td>
-    Solution
-   </td>
-  </tr>
-  <tr>
-   <td>
-    {Describe the issue here}
-   </td>
-   <td>
-    {Write solution here}
-   </td>
-  </tr>
-  <tr>
-   <td>
-    {Describe the issue here}
-   </td>
-   <td>
-    {Write solution here}
-   </td>
-  </tr>
-  <tr>
-   <td>
-    {Describe the issue here}
-   </td>
-   <td>
-    {Write solution here}
-   </td>
-  </tr>
-</table>
-
-Other troubleshooting supports:
-
-* {Link to FAQs}
-* {Link to runbooks}
-* {Link to other relevant support information}
-
-## Contributing guidelines
-
-{Include a link to your contributing guide here. If you do not have a contributing guide, incorporate the information in the README.}
-
-## Additional documentation
-
-{Include links and brief descriptions to additional documentation. Examples provided in README template guide.}
-
-For more information:
-
-* Reference link 1
-* Reference link 2
-* Reference link 3...
-
-## How to get help
-
-{Include links and brief descriptions for support resources. Examples provided in README template guide.}
-
-* Reference link 1
-* Reference link 2
-* Reference link 3...
-
 ## Terms of use
 
-{Project Name} is licensed under {link to license file}.
+Rubber Ducky is licensed under an [MIT License](LICENSE.md).
+
+All assets in the project were created by ourselves or sourced from free to use asset stores.
+
+All assets created by ourselves are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Audio
+- Sound track used in game was created by Bertsz available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
+- All sound effects are foley work provided by Joseph Dawes's mouth.
+
+### Artwork
+- All artwork including 3d and 2d modelling and texturing was created by ourselves.
+
+### Branding
+- Our studio logo was created using a free to use branding generator for GNOME apps called [Emblem](https://apps.gnome.org/en-GB/Emblem/).
+- The icon itself is from a free to use SVG icon service called [SVGrepo](https://www.svgrepo.com/) from the [Duck Animals SVG Vector](https://www.svgrepo.com/svg/176710/duck-animals) licensed under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
 
 ---
-
-> Explore other templates from [The Good Docs Project](https://thegooddocsproject.dev/). Use our [feedback form](https://thegooddocsproject.dev/feedback/?template=Readme%20template) to give feedback on this template.
 
