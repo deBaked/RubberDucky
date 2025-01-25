@@ -13,6 +13,7 @@ public class DuckMovement : MonoBehaviour
     public float offset;
 
     public bool flyDisabled;
+    public GameObject Bubble;
     
     [SerializeField] CharacterController controller;
     
@@ -26,7 +27,7 @@ public class DuckMovement : MonoBehaviour
     public float flyingPlayerForwardSpeed = 0.5f;
     //public float flyingPlayerForwardSpeed_Mult = 0.7f;
     
-    //Movement Settings
+    [Header("Current Movement Settings")]
     public float playerSpeed;
     public float playerForwardSpeed;
     public float SprintSpeed;
