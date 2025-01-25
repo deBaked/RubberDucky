@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using VHierarchy.Libs;
 
 public class TransitionTrigger : MonoBehaviour
@@ -8,6 +9,8 @@ public class TransitionTrigger : MonoBehaviour
     
     [SerializeField] bool canSceneChange = false;
     [SerializeField] bool runOnStart = false;
+
+    [SerializeField] private UnityEvent AnimEventTrigger;
     
     private Animator _animator;
     private GameSingleton _gameSingleton;
@@ -57,5 +60,10 @@ public class TransitionTrigger : MonoBehaviour
     {
         if (canSceneChange)
             _gameSingleton.SceneChange(sceneToLoad);
+    }
+
+    public void InvokeAnimEvent()
+    {
+        AnimEventTrigger.Invoke();
     }
 }
