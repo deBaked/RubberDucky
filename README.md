@@ -23,15 +23,15 @@ Rubber Ducky is licensed under an [MIT License](LICENSE.md).
 All assets in the project were created by ourselves or sourced from free to use asset stores.
 
 ### Audio
--Sound track used in game was created by Bertsz available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license]{https://creativecommons.org/public-domain/cc0/}.
--All sound effects are foley work provided by Joseph Dawes's mouth.
+- Sound track used in game was created by Bertsz available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license]{https://creativecommons.org/public-domain/cc0/}.
+- All sound effects are foley work provided by Joseph Dawes's mouth.
 
 ### Artwork
--All artwork including 3d and 2d modelling and texturing was created by ourselves.
+- All artwork including 3d and 2d modelling and texturing was created by ourselves.
 
 ### Branding
--Our studio logo was created using a free to use branding generator for GNOME apps called [Emblem]{https://apps.gnome.org/en-GB/Emblem/}.
--The icon itself is from a free to use SVG icon service called [SVGrepo]{https://www.svgrepo.com/} from the [Duck Animals SVG Vector]{https://www.svgrepo.com/svg/176710/duck-animals} licensed under a [Creative Commons 0 license]{https://creativecommons.org/public-domain/cc0/}.
+- Our studio logo was created using a free to use branding generator for GNOME apps called [Emblem]{https://apps.gnome.org/en-GB/Emblem/}.
+- The icon itself is from a free to use SVG icon service called [SVGrepo]{https://www.svgrepo.com/} from the [Duck Animals SVG Vector]{https://www.svgrepo.com/svg/176710/duck-animals} licensed under a [Creative Commons 0 license]{https://creativecommons.org/public-domain/cc0/}.
 
 ---
 
