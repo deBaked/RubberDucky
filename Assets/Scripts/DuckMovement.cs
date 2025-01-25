@@ -13,15 +13,15 @@ public class DuckMovement : MonoBehaviour
 
     public float offset;
 
-    public bool flyDisabled
-    {
-        get { return flyDisabled; }
-        set
-        {
-            flyDisabled = value;
-            canFly(value);
-        }
-    }
+    public bool flyDisabled;
+    // {
+    //     get { return flyDisabled; }
+    //     set
+    //     {
+    //         flyDisabled = value;
+    //         canFly(value);
+    //     }
+    // }
 
     [SerializeField] CharacterController controller;
     
