@@ -6,11 +6,10 @@ public class TransitionTrigger : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] string sceneToLoad;
     
-    [SerializeField] bool isTransitionOut = true;
     [SerializeField] bool canSceneChange = false;
+    [SerializeField] bool runOnStart = false;
     
     private Animator _animator;
-    private float _transitionPolarity = 1f;
     private GameSingleton _gameSingleton;
     
     // Start is called before the first frame update
@@ -30,17 +29,18 @@ public class TransitionTrigger : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
-
-        _transitionPolarity = isTransitionOut ? 1f : -1f;
-
-        _animator.speed = _transitionPolarity;
         
         audioSource.playOnAwake = false;
         audioSource.loop = false;
 
         _gameSingleton = GameSingleton.GetInstance();
+
+        if (runOnStart)
+        {
+            TriggerTransition();
+        }
     }
-    
+
     // Called from anim event
     public void TriggerAudio()
     {
