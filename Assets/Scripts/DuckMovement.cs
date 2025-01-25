@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using WiimoteApi;
@@ -13,16 +12,8 @@ public class DuckMovement : MonoBehaviour
 
     public float offset;
 
-    public bool flyDisabled
-    {
-        get { return flyDisabled; }
-        set
-        {
-            flyDisabled = value;
-            canFly(value);
-        }
-    }
-
+    public bool flyDisabled;
+    
     [SerializeField] CharacterController controller;
     
     [Header("No Fly Movement Settings")]

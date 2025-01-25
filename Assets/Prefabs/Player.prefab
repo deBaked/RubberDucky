@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 1000167410535889906}
   - component: {fileID: 5212277649483480726}
   - component: {fileID: 5859461815718258376}
+  - component: {fileID: 5662992885415586197}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -193,11 +194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+  flyDisabled: 0
   controller: {fileID: 1000167410535889906}
-  water: {fileID: 0}
-  playerSpeed: 4
-  playerForwardSpeed: 0.5
-  playerForwardSpeed_Mult: 1
+  noFlyPlayerSpeed: 2.5
+  noFlyPlayerForwardSpeed: 0.7
+  noFlyPlayerForwardSpeed_Mult: 1
+  flyingPlayerSpeed: 2
+  flyingPlayerForwardSpeed: 0.5
+  flyingPlayerForwardSpeed_Mult: 0.7
 --- !u!95 &5859461815718258376
 Animator:
   serializedVersion: 7
@@ -220,6 +224,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5662992885415586197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917231011059423023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21414d0ff728d450f9d0a85184216832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ducks: []
+  ducklingCount: 0
+  ducklingDisUnit: {x: 0, y: -0.5, z: -2}
 --- !u!1 &2236173921984463584
 GameObject:
   m_ObjectHideFlags: 0
