@@ -16,7 +16,7 @@ public class DuckMovement : MonoBehaviour
     public bool flyDisabled;
     public GameObject Bubble;
     
-    [SerializeField] CharacterController controller;
+    [SerializeField] Rigidbody controller;
     
     [Header("No Fly Movement Settings")]
     public float noFlyPlayerSpeed = 3f;
@@ -155,6 +155,7 @@ public class DuckMovement : MonoBehaviour
 
             movement = new Vector3(0, moveY, playerForwardSpeed * Time.deltaTime);
             
+            //controller.AddForce(movement, ForceMode.Force);
             transform.Translate(movement);
 
             transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal"));
@@ -206,6 +207,42 @@ public class DuckMovement : MonoBehaviour
             //playerForwardSpeed_Mult = noFlyPlayerForwardSpeed_Mult;
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("CamCollision"))
+        {
+            Debug.Log("Force applied");
+            Vector3 point = other.contacts[0].point;
+            Vector3 direction = Vector3.Normalize(point - transform.position) * 6f;
+            float speed = playerForwardSpeed;
+            playerForwardSpeed = 0f;
+            controller.AddForce(-direction, ForceMode.Impulse);
+            StartCoroutine(RemoveForce(speed, direction));
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("SmallBounce"))
+        {
+            Debug.Log("Force applied");
+            Vector3 point = other.contacts[0].point;
+            Vector3 direction = Vector3.Normalize(point - transform.position) * 2f;
+            float speed = playerForwardSpeed;
+            playerForwardSpeed = 0f;
+            controller.AddForce(-direction, ForceMode.Impulse);
+            StartCoroutine(RemoveForce(speed, direction));
+        }
+    }
+
+    private IEnumerator RemoveForce(float defaultSpeed, Vector3 direction)
+    {
+        yield return new WaitForSeconds(0.4f);
+        controller.velocity *= 0.8f;
+        yield return new WaitForSeconds(0.2f);
+        controller.velocity *= 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        controller.velocity = Vector3.zero;
+        playerForwardSpeed = defaultSpeed;
+    }
+    
 
     IEnumerator ActivateMote()
     {
