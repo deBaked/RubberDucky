@@ -3,7 +3,12 @@ guid: c9b784cbcac5e4dc9a5c5010a26efd0e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ducky_low01
+    second: {fileID: 2100000, guid: 8f2d66a67600c7245bb37b2634ec9d49, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
