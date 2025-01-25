@@ -86,7 +86,7 @@ public class DuckMovement : MonoBehaviour
             if (moveY > -0.25f && moveY < 0.25f) { moveY = 0f; }
 
             //if (moveY > -0.7) { moveY = -0.7f; }
-
+            moveY = moveY * 0.05f;
             Debug.Log(moveY);
 
             if (mote.Button.two)
@@ -111,12 +111,12 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            wiiMovement = new Vector3(0, moveY, 0.05f);
+            wiiMovement = new Vector3(0, moveY * 0.5f , playerForwardSpeed * Time.deltaTime);
             
             transform.Translate(wiiMovement);
 
-            transform.RotateAround(transform.position, Vector3.up, moveX);
-            transform.forward += new Vector3(0, wiiMovement.y, 0); ;
+            transform.RotateAround(transform.position, Vector3.up, -moveX);
+            transform.forward += new Vector3(0, wiiMovement.y / 2f, 0);
             
             //wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
             // controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
