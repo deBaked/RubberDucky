@@ -2035,32 +2035,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2157280976923565756}
---- !u!143 &2414457234663091857
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3962025930847781452}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.85
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2515358736672348514
 GameObject:
   m_ObjectHideFlags: 3
@@ -2290,7 +2264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 60ddb94a09950423dbc4bee465a977b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a510abbfec529034aa136d6b85fa0b5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2326,8 +2300,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7545078937031842972}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27275825, y: 0.000000017185515, z: -0.0000000048722337, w: 0.9620826}
-  m_LocalPosition: {x: -2.1971774, y: 6.743537, z: -15.677187}
+  m_LocalRotation: {x: 0.25431874, y: -0.34773308, z: 0.09858514, w: 0.89704216}
+  m_LocalPosition: {x: 3.9025817, y: 6.743537, z: -13.312652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2343,9 +2317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7953734393825357837}
   - component: {fileID: 4619199793967582900}
-  - component: {fileID: 2414457234663091857}
   - component: {fileID: 7220699627815005173}
-  - component: {fileID: 9020802000102945707}
   - component: {fileID: 7130975997844552950}
   m_Layer: 0
   m_Name: Duck
@@ -2716,7 +2688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   flyDisabled: 1
-  controller: {fileID: 2414457234663091857}
+  controller: {fileID: 0}
   noFlyPlayerSpeed: 4
   noFlyPlayerForwardSpeed: 1
   flyingPlayerSpeed: 2
@@ -2788,8 +2760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472042655535937374}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27275822, y: 0.000000017185513, z: -0.000000004872232, w: 0.9620826}
-  m_LocalPosition: {x: -2.1971774, y: 6.743537, z: -15.677187}
+  m_LocalRotation: {x: 0.25431874, y: -0.34773305, z: 0.09858513, w: 0.8970422}
+  m_LocalPosition: {x: 3.9025817, y: 6.743537, z: -13.312652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2827,14 +2799,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3962025930847781452}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.36143786, z: -0, w: 0.9323962}
   m_LocalPosition: {x: 0, y: 0.14999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3452111537122028670}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -42.377, z: 0}
 --- !u!1 &8188953667013683786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,28 +3009,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162087515026782999}
   m_Mesh: {fileID: 4300000, guid: 8cdc4414f4f67f747b84ae9f3c86c17d, type: 3}
---- !u!95 &9020802000102945707
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3962025930847781452}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89729d1253592ee498a7bce458cb0377, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &9047595249998913690
 CanvasRenderer:
   m_ObjectHideFlags: 0

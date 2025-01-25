@@ -109,14 +109,21 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
-            controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
+            wiiMovement = new Vector3(0, moveY, 0.05f);
             
-            if (wiiMovement != Vector3.zero)
-            {
-                gameObject.transform.forward = wiiMovement;
-                
-            }
+            transform.Translate(wiiMovement);
+
+            transform.RotateAround(transform.position, Vector3.up, moveX);
+            transform.forward += new Vector3(0, wiiMovement.y, 0); ;
+            
+            //wiiMovement = new Vector3(moveX, moveY, playerForwardSpeed * playerForwardSpeed_Mult);
+            // controller.Move(-wiiMovement * Time.deltaTime * playerSpeed);
+            //
+            // if (wiiMovement != Vector3.zero)
+            // {
+            //     gameObject.transform.forward = wiiMovement;
+            //     
+            // }
         }
         // WASD INPUTS
         else
@@ -137,68 +144,24 @@ public class DuckMovement : MonoBehaviour
                 playerForwardSpeed_Mult = 1f;
             }
 
-            moveY = Input.GetAxis("Vertical");
+            moveY = Input.GetAxis("Vertical") * 0.05f ;
 
             if (flyDisabled)
             {
                 moveY = 0f;
             }
+
+            movement = new Vector3(0, moveY, 0.05f);
             
+            transform.Translate(movement);
+
+            transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal"));
+            transform.forward += new Vector3(0, movement.y, 0);
             
-            
-            movement = new Vector3(Input.GetAxis("Horizontal"), moveY, playerForwardSpeed * playerForwardSpeed_Mult) ;
-            transform.InverseTransformDirection(movement);
-            
-            controller.Move(movement * Time.deltaTime * playerSpeed);
-            //ransform.position += movement * Time.deltaTime * playerSpeed;
-            
-            //transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * 50f , 0);
-            
-            //transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal") * Time.deltaTime * 50);
-            //transform.RotateAround(transform.position, Vector3.forward, moveY * Time.deltaTime * 50);
-            //transform.forward += movement;
-            
-            // if (movement != Vector3.zero)
-            // {
-            //     //Vector3 rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * rotationSpeed * Time.deltaTime, 0);
-            //     //movement = new Vector3(movement.x + moveX, movement.y, movement.z);
-            //     transform.RotateAround(transform.position, Vector3.up, Input.GetAxis("Horizontal") * Time.deltaTime * 1000);
-            //     transform.forward = movement;
-            //     //transform.Rotate(rotation);
-            //     //transform.Rotate(Vector3.up, moveX, Space.World);
-            // }
         }
         
-        //cam.transform.position = new Vector3(0, 0, this.gameObject.transform.position.z);
-
-        //if (movement != Vector3.zero)
-        //{
-        //    gameObject.transform.forward = movement;
-        //}
-
-        //// Makes the player jump
-        //if (Input.getbu("Space") && groundedPlayer)
-        //{
-        //    playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
-        //}
-
-        //playerVelocity.y += gravityValue * Time.deltaTime;
-        //controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    /*
-    void FixedUpdate()
-    {
-        if (mote != null)
-        {
-            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
-        }
-        else
-        {
-            water.transform.position += new Vector3(0, 0, moveY * 0.2f);
-        }
-        
-    }*/
 
     public void canFly(bool flying)
     {
