@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 using WiimoteApi;
 
 public class DuckMovement : MonoBehaviour
@@ -12,10 +13,14 @@ public class DuckMovement : MonoBehaviour
     float moveX, moveY;
 
     public bool flyDisabled;
+    public Slider boostSlider;
     public GameObject Bubble;
 
     [SerializeField] ParticleSystem QuackVFX;
     [SerializeField] AudioSource[] Quacks;
+    [SerializeField] ParticleSystem FartVFX;
+    [SerializeField] AudioSource[] Farts;
+    [HideInInspector] public bool farted;
 
     private MotherDuckCounter motherDuckSC;
 
@@ -93,7 +98,7 @@ public class DuckMovement : MonoBehaviour
             moveY = moveY * 0.05f;
             //Debug.Log(moveY);
 
-            if (mote.Button.two)
+            if (boostSlider.value != 0 && mote.Button.two)
             {
                 if (flyDisabled)
                 {
@@ -103,11 +108,19 @@ public class DuckMovement : MonoBehaviour
                 {
                     playerForwardSpeed_Mult = 1f * SprintSpeed;
                 }
-               
+
+                if (!farted && boostSlider.value > 1f)
+                {
+                    farted = true;
+                    TriggerFart();
+                }
+                boostSlider.value -= 0.2f;
             }
             else
             {
                 playerForwardSpeed_Mult = 1f;
+
+                boostSlider.value += 0.1f;
             }
 
             if (flyDisabled)
@@ -134,7 +147,7 @@ public class DuckMovement : MonoBehaviour
         // WASD INPUTS
         else
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (boostSlider.value != 0 && Input.GetKey(KeyCode.LeftShift))
             {
                 if (flyDisabled)
                 {
@@ -144,10 +157,19 @@ public class DuckMovement : MonoBehaviour
                 {
                     playerForwardSpeed_Mult = 1f * SprintSpeed;
                 }
+
+                if (!farted && boostSlider.value > 1f)
+                {
+                    farted = true;
+                    TriggerFart();
+                }
+                boostSlider.value -= 0.2f;
             }
             else
             {
                 playerForwardSpeed_Mult = 1f;
+
+                boostSlider.value += 0.1f;
             }
 
             moveY = Input.GetAxis("Vertical") * 0.05f ;
@@ -279,6 +301,18 @@ public class DuckMovement : MonoBehaviour
         QuackVFX.Play();
     }
 
+    private void TriggerFart()
+    {
+        Farts[UnityEngine.Random.Range(0, Farts.Length)].Play();
+        //FartVFX.Play();
+        StartCoroutine(enableFarting());
+    }
+
+    IEnumerator enableFarting()
+    {
+        yield return new WaitForSeconds(0.5f);
+        farted = false;
+    }
 
     IEnumerator ActivateMote()
     {

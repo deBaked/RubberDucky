@@ -84,6 +84,7 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-127108966-0
         - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-3921511028908927394-566597700
         - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-5610389037912522496-566597700
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-515911742-0
         values:
         - colorIndex: 3
           iconNameOrGuid: 
@@ -135,6 +136,10 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 0
           iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []
