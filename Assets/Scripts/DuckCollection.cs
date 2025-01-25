@@ -9,14 +9,20 @@ public class DuckCollection : MonoBehaviour
     private bool isFollowingDuck = false;
     
     private MotherDuckCounter motherDuckSC;
+    private Animator ducklingAnimator;
     
     private int ducklingNum;
     private Transform duckToFollow;
     private Vector3 ducklingOffset;
-    
+
+    private AudioSource collectAudio;
+
+
     void Start()
     {
         playerDuck = GameObject.FindGameObjectWithTag("Player");
+        collectAudio = GetComponent<AudioSource>();
+        ducklingAnimator = GetComponent<Animator>();
     }
     
 
@@ -34,6 +40,8 @@ public class DuckCollection : MonoBehaviour
             duckToFollow = motherDuckSC.Ducks[ducklingNum-1];
             
             isFollowingDuck = true;
+            collectAudio.Play();
+            ducklingAnimator.SetTrigger("Collected");
         }
     }
 
@@ -45,7 +53,9 @@ public class DuckCollection : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, duckToFollow.rotation, Time.deltaTime );
         }
     }
-    
-    
-    
+
+
+
+
+
 }

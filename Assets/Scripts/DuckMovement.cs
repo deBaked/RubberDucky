@@ -11,11 +11,14 @@ public class DuckMovement : MonoBehaviour
 
     float moveX, moveY;
 
-    public float offset;
-
     public bool flyDisabled;
     public GameObject Bubble;
-    
+
+    [SerializeField] ParticleSystem QuackVFX;
+    [SerializeField] AudioSource[] Quacks;
+
+    private MotherDuckCounter motherDuckSC;
+
     [SerializeField] Rigidbody controller;
     
     [Header("No Fly Movement Settings")]
@@ -42,7 +45,8 @@ public class DuckMovement : MonoBehaviour
     {
         playerSpeed = noFlyPlayerSpeed;
         playerForwardSpeed = noFlyPlayerForwardSpeed;
-        
+        motherDuckSC = gameObject.GetComponent<MotherDuckCounter>();
+
         WiimoteManager.FindWiimotes();
         StartCoroutine(ActivateMote());
 
@@ -87,7 +91,7 @@ public class DuckMovement : MonoBehaviour
 
             //if (moveY > -0.7) { moveY = -0.7f; }
             moveY = moveY * 0.05f;
-            Debug.Log(moveY);
+            //Debug.Log(moveY);
 
             if (mote.Button.two)
             {
@@ -111,7 +115,7 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            wiiMovement = new Vector3(0, moveY * 0.5f , playerForwardSpeed * Time.deltaTime);
+            wiiMovement = new Vector3(0, moveY * 0.5f , (playerForwardSpeed * playerForwardSpeed_Mult ) * Time.deltaTime);
             
             transform.Translate(wiiMovement);
 
@@ -212,21 +216,47 @@ public class DuckMovement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("CamCollision"))
         {
-            Debug.Log("Force applied");
+            TriggerQuack();
+
+            //Debug.Log("Force applied");
             Vector3 point = other.contacts[0].point;
             Vector3 direction = Vector3.Normalize(point - transform.position) * 6f;
-            float speed = playerForwardSpeed;
+
+            float speed;
+            if (flyDisabled)
+            {
+                speed = noFlyPlayerForwardSpeed;
+            }
+            else
+            {
+                speed = flyingPlayerForwardSpeed;
+            }
+            
             playerForwardSpeed = 0f;
+
             controller.AddForce(-direction, ForceMode.Impulse);
             StartCoroutine(RemoveForce(speed, direction));
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("SmallBounce"))
         {
-            Debug.Log("Force applied");
+            TriggerQuack();
+
+            //Debug.Log("Force applied");
             Vector3 point = other.contacts[0].point;
             Vector3 direction = Vector3.Normalize(point - transform.position) * 2f;
-            float speed = playerForwardSpeed;
+
+            float speed;
+            if (flyDisabled)
+            {
+                speed = noFlyPlayerForwardSpeed;
+            }
+            else
+            {
+                speed = flyingPlayerForwardSpeed;
+            }
+
             playerForwardSpeed = 0f;
+
             controller.AddForce(-direction, ForceMode.Impulse);
             StartCoroutine(RemoveForce(speed, direction));
         }
@@ -243,6 +273,12 @@ public class DuckMovement : MonoBehaviour
         playerForwardSpeed = defaultSpeed;
     }
     
+    private void TriggerQuack()
+    {
+        Quacks[UnityEngine.Random.Range(0, Quacks.Length)].Play();
+        QuackVFX.Play();
+    }
+
 
     IEnumerator ActivateMote()
     {
