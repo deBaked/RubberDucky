@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using VHierarchy.Libs;
 
 public class TransitionTrigger : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class TransitionTrigger : MonoBehaviour
             _animator = GetComponent<Animator>();
         }
 
-        if (sceneToLoad.IsNullOrEmpty())
+        if (string.IsNullOrEmpty(sceneToLoad))
         {
             Debug.LogWarning("No scene target set in inspector!");
         }

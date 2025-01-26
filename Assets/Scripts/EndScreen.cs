@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using VHierarchy.Libs;
 
 public class EndScreen : MonoBehaviour
 {
@@ -45,7 +44,7 @@ public class EndScreen : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
-                if (endMessages[i].IsNullOrEmpty())
+                if (string.IsNullOrEmpty(endMessages[i]))
                 {
                     endMessages[i] = " ";
                 }
