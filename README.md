@@ -18,9 +18,27 @@ This game has been designed to work with a Wii Remote but will also work with WA
 MEET THE TEAM:
 
 Bryoni Spencer - https://www.linkedin.com/in/bryoni-spencer/
+3D Models
+Textures
+2D Sprites
+
 Daisy Baker - https://www.linkedin.com/in/daibak08/
+Mother Duck movement system
+Wiimote control implementation
+Duckling behaviour
+General Animations
+
 Steven Sizer - https://www.linkedin.com/in/steven-sizer-06873323b/
+Level Design
+Level enhancements + lighting
+VFXs Design and Creation
+Design Documentation
+
 Joseph Dawes - https://www.linkedin.com/in/joseph-dawes-2bb870196/
+Menu systems
+Scene transitions
+End screen functionality
+Audio design
 
 ## Project dependencies
 
