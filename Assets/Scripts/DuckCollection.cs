@@ -6,7 +6,11 @@ using UnityEngine;
 public class DuckCollection : MonoBehaviour
 {
     private GameObject playerDuck;
+    private DuckMovement duckMovementSC;
     private bool isFollowingDuck = false;
+    private bool isShocked;
+
+    [SerializeField] ParticleSystem shockVFX;
     
     private MotherDuckCounter motherDuckSC;
     private Animator ducklingAnimator;
@@ -52,8 +56,19 @@ public class DuckCollection : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, duckToFollow.position + ducklingOffset, Time.deltaTime );
             transform.rotation = Quaternion.Lerp(transform.rotation, duckToFollow.rotation, Time.deltaTime );
         }
+        if (!isShocked && duckMovementSC.farted)
+        {
+            isShocked = true;
+            //shockVFX.Play();
+            StartCoroutine(enableShock());
+        }
     }
 
+    IEnumerator enableShock()
+    {
+        yield return new WaitForSeconds(0.4f);
+        isShocked = false;
+    }
 
 
 
