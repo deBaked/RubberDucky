@@ -30,4 +30,9 @@ public class GameSingleton
     {
         return duckingCounter;
     }
+
+    public void ResetDucklingCount()
+    {
+        duckingCounter = 0;
+    }
 }
