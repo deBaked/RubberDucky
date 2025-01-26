@@ -24,7 +24,8 @@ All assets in the project were created by ourselves or sourced from free to use 
 All assets created by ourselves are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ### Audio
-- Sound track used in game was created by Bertsz available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
+- Sound track used in the main game level was created by Bertsz, available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
+- Sound track used in the main menu screen was created by Seth_Makes_Sounds, available [here](https://freesound.org/people/Seth_Makes_Sounds/sounds/655515/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
 - All sound effects are foley work provided by Joseph Dawes's mouth.
 
 ### Artwork
