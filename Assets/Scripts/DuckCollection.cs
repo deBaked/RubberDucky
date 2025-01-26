@@ -25,6 +25,7 @@ public class DuckCollection : MonoBehaviour
     void Start()
     {
         playerDuck = GameObject.FindGameObjectWithTag("Player");
+        duckMovementSC = playerDuck.GetComponent<DuckMovement>();
         collectAudio = GetComponent<AudioSource>();
         ducklingAnimator = GetComponent<Animator>();
     }
@@ -59,7 +60,7 @@ public class DuckCollection : MonoBehaviour
         if (!isShocked && duckMovementSC.farted)
         {
             isShocked = true;
-            //shockVFX.Play();
+            shockVFX.Play();
             StartCoroutine(enableShock());
         }
     }

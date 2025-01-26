@@ -304,7 +304,7 @@ public class DuckMovement : MonoBehaviour
     private void TriggerFart()
     {
         Farts[UnityEngine.Random.Range(0, Farts.Length)].Play();
-        //FartVFX.Play();
+        FartVFX.Play();
         StartCoroutine(enableFarting());
     }
 
