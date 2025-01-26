@@ -162,8 +162,8 @@ MonoBehaviour:
   lensAttenuationMode: 0
   colorGradingSpace: 0
   m_ObsoleteDiffusionProfileSettingsList:
-  - {fileID: 11400000, guid: 48e911a1e337b44e2b85dbc65b47a594, type: 2}
-  - {fileID: 11400000, guid: 879ffae44eefa4412bb327928f1a96dd, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   specularFade: 0
   rendererListCulling: 0
   DLSSProjectId: 000000
@@ -184,7 +184,8 @@ MonoBehaviour:
     hasProbeVolumes:
       m_Keys:
       - ba6efd85c9627704ea82be4c839bce61
-      m_Values: 00
+      - 0a0f1da46c251004ba68aa917ae2ea1a
+      m_Values: 0000
   m_Version: 10
   m_ShaderStrippingSetting:
     m_Version: 0
