@@ -179,7 +179,7 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            movement = new Vector3(0, moveY, playerForwardSpeed * Time.deltaTime);
+            movement = new Vector3(0, moveY, (playerForwardSpeed * playerForwardSpeed_Mult ) * Time.deltaTime);
             
             //controller.AddForce(movement, ForceMode.Force);
             transform.Translate(movement);
