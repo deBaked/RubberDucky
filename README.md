@@ -9,6 +9,19 @@ https://github.com/deBaked/RubberDucky
 
 This project is a game submitted as part of the Global Game Jam 2025. This project is a game that was completed over 3 days of development.
 
+Bath times over! It time for escape!!!! Join Mote the duck as you help guide her to escape the bathroom. Collect her ducklings and float to freedom in this new and exciting game!
+
+CONTROL SCHEME:
+
+This game has been designed to work with a Wii Remote but will also work with WASD on your keyboard.
+
+MEET THE TEAM:
+
+Bryoni Spencer - https://www.linkedin.com/in/bryoni-spencer/
+Daisy Baker - https://www.linkedin.com/in/daibak08/
+Steven Sizer - https://www.linkedin.com/in/steven-sizer-06873323b/
+Joseph Dawes - https://www.linkedin.com/in/joseph-dawes-2bb870196/
+
 ## Project dependencies
 
 To run this repo, ensure you have:
@@ -22,6 +35,8 @@ Rubber Ducky is licensed under an [MIT License](LICENSE.md).
 All assets in the project were created by ourselves or sourced from free to use asset stores.
 
 All assets created by ourselves are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Used Flafla2's Unity Wiimote API : https://github.com/Flafla2/Unity-Wiimote
 
 ### Audio
 - Sound track used in the main game level was created by Bertsz, available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
