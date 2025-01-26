@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BubbleNoiseTrigger : MonoBehaviour
 {
     // Quack quack quack
     [SerializeField] AudioSource audioSource;
     private Animator _animator;
+    
+    public UnityEvent OnAnimEnd;
     
     void Start()
     {
@@ -28,6 +31,11 @@ public class BubbleNoiseTrigger : MonoBehaviour
     public void TriggerBubbleNoise()
     {
         audioSource.Play();
+    }
+
+    public void TriggerAnimEnd()
+    {
+        OnAnimEnd.Invoke();
     }
     
     public void TriggerAnim()
