@@ -5,6 +5,8 @@ public class GameSingleton
 {
     private static GameSingleton instance;
 
+    private int duckingCounter = 0;
+
     public static GameSingleton GetInstance()
     {
         if (instance == null)
@@ -17,5 +19,15 @@ public class GameSingleton
     public void SceneChange(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void AddDuckling()
+    {
+        duckingCounter++;
+    }
+
+    public int GetDucklingCount()
+    {
+        return duckingCounter;
     }
 }
