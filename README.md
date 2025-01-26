@@ -1,7 +1,7 @@
 ![logo](https://github.com/user-attachments/assets/c22685b6-34e2-4a00-8f02-bf676dc43f43)
 ![ggjlogo](https://github.com/user-attachments/assets/76aada52-d693-4304-b4a3-34a50d2af38f)
 
-## Global Game Jam 2025: Rubber Ducky Gamin
+## Global Game Jam 2025: Bubble Breakout!
 
 https://github.com/deBaked/RubberDucky
 
