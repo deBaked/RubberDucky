@@ -72,9 +72,74 @@ MonoBehaviour:
     - goDatas_byGlobalId:
         keys:
         - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-1429639100209366896-494244061124511617
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-1429639100209366896-1181157656
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-4017501169947170752-1181157656
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-1493074191-0
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-4616210192126802801-358470783
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-6651676067547908577-1181157656
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-6390632847043617449-2037699096
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-8626939207499752383-1520699458
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-8626939207499752383-566597700
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-4616210192126802801-137351285
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-127108966-0
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-3921511028908927394-566597700
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-5610389037912522496-566597700
+        - globalObjectIdString: GlobalObjectId_V1-2-6607852ef34884126aa7c867d6d50040-515911742-0
         values:
         - colorIndex: 3
           iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 4
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: ParticleSystem Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
           isIconRecursive: 0
           isColorRecursive: 0
   bookmarks: []

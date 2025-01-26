@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 using WiimoteApi;
 
 public class DuckMovement : MonoBehaviour
@@ -11,11 +12,18 @@ public class DuckMovement : MonoBehaviour
 
     float moveX, moveY;
 
-    public float offset;
-
     public bool flyDisabled;
+    public Slider boostSlider;
     public GameObject Bubble;
-    
+
+    [SerializeField] ParticleSystem QuackVFX;
+    [SerializeField] AudioSource[] Quacks;
+    [SerializeField] ParticleSystem FartVFX;
+    [SerializeField] AudioSource[] Farts;
+    [HideInInspector] public bool farted;
+
+    private MotherDuckCounter motherDuckSC;
+
     [SerializeField] Rigidbody controller;
     
     [Header("No Fly Movement Settings")]
@@ -42,7 +50,8 @@ public class DuckMovement : MonoBehaviour
     {
         playerSpeed = noFlyPlayerSpeed;
         playerForwardSpeed = noFlyPlayerForwardSpeed;
-        
+        motherDuckSC = gameObject.GetComponent<MotherDuckCounter>();
+
         WiimoteManager.FindWiimotes();
         StartCoroutine(ActivateMote());
 
@@ -87,9 +96,9 @@ public class DuckMovement : MonoBehaviour
 
             //if (moveY > -0.7) { moveY = -0.7f; }
             moveY = moveY * 0.05f;
-            Debug.Log(moveY);
+            //Debug.Log(moveY);
 
-            if (mote.Button.two)
+            if (boostSlider.value != 0 && mote.Button.two)
             {
                 if (flyDisabled)
                 {
@@ -99,11 +108,19 @@ public class DuckMovement : MonoBehaviour
                 {
                     playerForwardSpeed_Mult = 1f * SprintSpeed;
                 }
-               
+
+                if (!farted && boostSlider.value > 1f)
+                {
+                    farted = true;
+                    TriggerFart();
+                }
+                boostSlider.value -= 0.2f;
             }
             else
             {
                 playerForwardSpeed_Mult = 1f;
+
+                boostSlider.value += 0.1f;
             }
 
             if (flyDisabled)
@@ -111,7 +128,7 @@ public class DuckMovement : MonoBehaviour
                 moveY = 0f;
             }
 
-            wiiMovement = new Vector3(0, moveY * 0.5f , playerForwardSpeed * Time.deltaTime);
+            wiiMovement = new Vector3(0, moveY * 0.5f , (playerForwardSpeed * playerForwardSpeed_Mult ) * Time.deltaTime);
             
             transform.Translate(wiiMovement);
 
@@ -130,7 +147,7 @@ public class DuckMovement : MonoBehaviour
         // WASD INPUTS
         else
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (boostSlider.value != 0 && Input.GetKey(KeyCode.LeftShift))
             {
                 if (flyDisabled)
                 {
@@ -140,10 +157,19 @@ public class DuckMovement : MonoBehaviour
                 {
                     playerForwardSpeed_Mult = 1f * SprintSpeed;
                 }
+
+                if (!farted && boostSlider.value > 1f)
+                {
+                    farted = true;
+                    TriggerFart();
+                }
+                boostSlider.value -= 0.2f;
             }
             else
             {
                 playerForwardSpeed_Mult = 1f;
+
+                boostSlider.value += 0.1f;
             }
 
             moveY = Input.GetAxis("Vertical") * 0.05f ;
@@ -212,21 +238,47 @@ public class DuckMovement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("CamCollision"))
         {
-            Debug.Log("Force applied");
+            TriggerQuack();
+
+            //Debug.Log("Force applied");
             Vector3 point = other.contacts[0].point;
             Vector3 direction = Vector3.Normalize(point - transform.position) * 6f;
-            float speed = playerForwardSpeed;
+
+            float speed;
+            if (flyDisabled)
+            {
+                speed = noFlyPlayerForwardSpeed;
+            }
+            else
+            {
+                speed = flyingPlayerForwardSpeed;
+            }
+            
             playerForwardSpeed = 0f;
+
             controller.AddForce(-direction, ForceMode.Impulse);
             StartCoroutine(RemoveForce(speed, direction));
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("SmallBounce"))
         {
-            Debug.Log("Force applied");
+            TriggerQuack();
+
+            //Debug.Log("Force applied");
             Vector3 point = other.contacts[0].point;
             Vector3 direction = Vector3.Normalize(point - transform.position) * 2f;
-            float speed = playerForwardSpeed;
+
+            float speed;
+            if (flyDisabled)
+            {
+                speed = noFlyPlayerForwardSpeed;
+            }
+            else
+            {
+                speed = flyingPlayerForwardSpeed;
+            }
+
             playerForwardSpeed = 0f;
+
             controller.AddForce(-direction, ForceMode.Impulse);
             StartCoroutine(RemoveForce(speed, direction));
         }
@@ -243,6 +295,24 @@ public class DuckMovement : MonoBehaviour
         playerForwardSpeed = defaultSpeed;
     }
     
+    private void TriggerQuack()
+    {
+        Quacks[UnityEngine.Random.Range(0, Quacks.Length)].Play();
+        QuackVFX.Play();
+    }
+
+    private void TriggerFart()
+    {
+        Farts[UnityEngine.Random.Range(0, Farts.Length)].Play();
+        //FartVFX.Play();
+        StartCoroutine(enableFarting());
+    }
+
+    IEnumerator enableFarting()
+    {
+        yield return new WaitForSeconds(0.5f);
+        farted = false;
+    }
 
     IEnumerator ActivateMote()
     {

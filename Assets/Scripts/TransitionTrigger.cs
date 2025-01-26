@@ -52,7 +52,13 @@ public class TransitionTrigger : MonoBehaviour
 
     public void TriggerTransition()
     {
+        AnimEventTrigger.AddListener(StopAudioPlayback);
         _animator.SetBool("Start", true);
+    }
+
+    private void StopAudioPlayback()
+    {
+        audioSource.Stop();
     }
     
     // Called from anim event
@@ -65,5 +71,16 @@ public class TransitionTrigger : MonoBehaviour
     public void InvokeAnimEvent()
     {
         AnimEventTrigger.Invoke();
+    }
+
+    public void TriggerExitGameAnim()
+    {
+        AnimEventTrigger.AddListener(ExitGame);
+        TriggerTransition();
+    }
+
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 }
