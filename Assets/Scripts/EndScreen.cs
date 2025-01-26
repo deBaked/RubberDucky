@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using VHierarchy.Libs;
 
 public class EndScreen : MonoBehaviour
 {
@@ -13,8 +12,7 @@ public class EndScreen : MonoBehaviour
     [SerializeField] string[] endMessages;
     [SerializeField] private TextMeshProUGUI endText;
     
-    [SerializeField] private int ducklingCount = 4;
-    
+    private int _ducklingCount;
     private Animator _animator;
     private GameSingleton _gameSingleton;
     private string _endMessage;
@@ -36,7 +34,7 @@ public class EndScreen : MonoBehaviour
         
         _gameSingleton = GameSingleton.GetInstance();
 
-        //ducklingCount = _gameSingleton.GetDucklingCount();
+        _ducklingCount = _gameSingleton.GetDucklingCount();
         
         audioSource.playOnAwake = false;
         audioSource.loop = false;
@@ -46,23 +44,25 @@ public class EndScreen : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
-                if (endMessages[i].IsNullOrEmpty())
+                if (string.IsNullOrEmpty(endMessages[i]))
                 {
                     endMessages[i] = " ";
                 }
             }
         }
         
-        endText.text = endMessages[ducklingCount];
+        endText.text = endMessages[_ducklingCount];
+        
+        _gameSingleton.ResetDucklingCount();
     }
 
     public void TriggerDuckMarker()
     {
         TriggerBubbleNoise();
         
-        if (ducklingCount > 0)
+        if (_ducklingCount > 0)
         {
-            --ducklingCount;
+            --_ducklingCount;
             Instantiate(duckling, spawnPoints[_placeInList], false);
         }
         else
