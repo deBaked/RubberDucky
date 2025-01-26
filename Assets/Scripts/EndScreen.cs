@@ -36,7 +36,7 @@ public class EndScreen : MonoBehaviour
         
         _gameSingleton = GameSingleton.GetInstance();
 
-        //_ducklingCount = _gameGameSingleton.GetDucklingCount();
+        //ducklingCount = _gameSingleton.GetDucklingCount();
         
         audioSource.playOnAwake = false;
         audioSource.loop = false;
@@ -53,7 +53,7 @@ public class EndScreen : MonoBehaviour
             }
         }
         
-        endText.text = endMessages[ducklingCount-1];
+        endText.text = endMessages[ducklingCount];
     }
 
     public void TriggerDuckMarker()
