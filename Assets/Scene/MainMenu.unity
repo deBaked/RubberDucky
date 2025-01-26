@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3616, g: 325.0784, b: 430.26373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -956,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 8324184959395408805, guid: 1c7fe0f4bfc3b4646a740c04ba2ba0fa,
         type: 3}
       propertyPath: sceneToLoad
-      value: Blockout
+      value: TutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 8324184959395408805, guid: 1c7fe0f4bfc3b4646a740c04ba2ba0fa,
         type: 3}
@@ -1175,7 +1175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &575745916
@@ -1725,6 +1725,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 682140942}
+  OnAnimEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &721679545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,6 +3199,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 36513440822790871, guid: fc85dca2fa2ec754e8cbe3c4fcfbadb9,
         type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 36513440822790871, guid: fc85dca2fa2ec754e8cbe3c4fcfbadb9,
+        type: 3}
+      propertyPath: canSceneChange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36513440822790871, guid: fc85dca2fa2ec754e8cbe3c4fcfbadb9,
+        type: 3}
       propertyPath: AnimEventTrigger.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3401,6 +3414,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenuBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958244069946049485, guid: ca1cc2f8f6bd34f47bc4b06f42dbe1a5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091724255968165745, guid: ca1cc2f8f6bd34f47bc4b06f42dbe1a5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
