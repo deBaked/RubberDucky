@@ -11,34 +11,34 @@ This project is a game submitted as part of the Global Game Jam 2025. This proje
 
 Bath times over! It time for escape!!!! Join Mote the duck as you help guide her to escape the bathroom. Collect her ducklings and float to freedom in this new and exciting game!
 
-CONTROL SCHEME:
+### Control Scheme:
 
 This game has been designed to work with a Wii Remote but will also work with WASD on your keyboard.
 
-MEET THE TEAM:
+### Meet the Team:
 
-Bryoni Spencer - https://www.linkedin.com/in/bryoni-spencer/
-3D Models
-Textures
-2D Sprites
+[Bryoni Spencer](https://www.linkedin.com/in/bryoni-spencer/):
+- 3D Models
+- Textures
+- 2D Sprites
 
-Daisy Baker - https://www.linkedin.com/in/daibak08/
-Mother Duck movement system
-Wiimote control implementation
-Duckling behaviour
-General Animations
+[Daisy Baker](https://www.linkedin.com/in/daibak08/):
+- Mother Duck movement system
+- Wiimote control implementation
+- Duckling behaviour
+- General Animations
 
-Steven Sizer - https://www.linkedin.com/in/steven-sizer-06873323b/
-Level Design
-Level enhancements + lighting
-VFXs Design and Creation
-Design Documentation
+[Steven Sizer](https://www.linkedin.com/in/steven-sizer-06873323b/):
+- Level Design
+- Level enhancements + lighting
+- VFXs Design and Creation
+- Design Documentation
 
-Joseph Dawes - https://www.linkedin.com/in/joseph-dawes-2bb870196/
-Menu systems
-Scene transitions
-End screen functionality
-Audio design
+[Joseph Dawes](https://www.linkedin.com/in/joseph-dawes-2bb870196/):
+- Menu systems
+- Scene transitions
+- End screen functionality
+- Audio design
 
 ## Project dependencies
 
