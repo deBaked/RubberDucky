@@ -50,11 +50,12 @@ To run this repo, ensure you have:
 
 Rubber Ducky is licensed under an [MIT License](LICENSE.md).
 
-All assets in the project were created by ourselves or sourced from free to use asset stores.
+All assets in the project were created by ourselves or sourced from free to use asset stores or we have licenses for.
 
 All assets created by ourselves are licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-Used Flafla2's Unity Wiimote API : https://github.com/Flafla2/Unity-Wiimote
+### APIs
+- Used Flafla2's Unity Wiimote API found [here](https://github.com/Flafla2/Unity-Wiimote).
 
 ### Audio
 - Sound track used in the main game level was created by Bertsz, available [here](https://freesound.org/people/Bertsz/sounds/671900/) under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
@@ -67,6 +68,9 @@ Used Flafla2's Unity Wiimote API : https://github.com/Flafla2/Unity-Wiimote
 ### Branding
 - Our studio logo was created using a free to use branding generator for GNOME apps called [Emblem](https://apps.gnome.org/en-GB/Emblem/).
 - The icon itself is from a free to use SVG icon service called [SVGrepo](https://www.svgrepo.com/) from the [Duck Animals SVG Vector](https://www.svgrepo.com/svg/176710/duck-animals) licensed under a [Creative Commons 0 license](https://creativecommons.org/public-domain/cc0/).
+
+### Font
+- The font we used is the 'Bubblegum' font created by Thomas Ziller which can be found [here](https://www.dafont.com/bubblegum.font) under a shareware license (Fee paid for by Joseph Dawes)
 
 ---
 
